@@ -97,7 +97,7 @@ Chrome and Firefox handle MV3 background execution differently, so we ship **two
 - **Debouncing**: Prevents excessive updates when settings change rapidly
 - **State Tracking**: Per-tab state map prevents duplicate messages and race conditions
 - **Icon Sync**: Extension icon color reflects RTL status per tab
-- **SPI Detection**: Automatically recovers styles if they're removed by other scripts (Chrome-family only, see [Cross-Browser Manifest](#-cross-browser-manifest))
+- **SPI Detection**: Automatically recovers styles if they're removed by other scripts
 
 ## 🏗️ Project Structure
 
@@ -146,7 +146,6 @@ RTL Helper stores all settings locally on your device (`chrome.storage.local`) �
 
 - Some websites with hardcoded styles may need the "Force Styles" option
 - For Mobile: Keyboard shortcuts are not available (popup only)
-- On Chrome-family browsers, tabs that were already open before an extension update/reload won't get the new `content.js` automatically until the tab is refreshed once (static `content_scripts` don't retroactively inject; this is a Chromium/MV3 limitation, not RTL Helper-specific)
 
 ## 💡 Tips
 
