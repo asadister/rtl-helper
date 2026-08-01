@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href='/icons/icon-128.png'>
+        <title data-i18n="optionsTitle">RTL Helper — Options</title>
+        <link rel="stylesheet" href="options.css" />
+    </head>
+    <body>
+        <div class="header">
+            <h1 data-i18n="optionsTitle">RTL Helper — Options</h1>
+        </div>
+
+        <div class="option-group site-scope">
+            <h2 class="option-group-header siteSettings" data-i18n="siteSettingsHeader">Settings for this site</h2>
+            <label for="customCSS" id="customCSSLabel">
+                <span data-i18n="customCSSForDomain">Custom CSS: </span>
+                <span id="domainName">-</span>
+            </label>
+            <textarea id="customCSS" spellcheck="false" placeholder="div.container { text-align: right; }&#10;.message { direction: rtl; }"></textarea>
+            <small data-i18n="customCSSSub">CSS added to default RTL styles</small>
+            <div class="button-group">
+                <button id="saveBtn" data-i18n="saveBtn">Save CSS</button>
+                <button id="resetBtn" data-i18n="resetBtn">Reset CSS</button>
+                <button id="returnBtn" data-i18n="returnBtn">Return</button>
+            </div>
+        </div>
+
+        <div class="option-group global-scope">
+            <h2 class="option-group-header globalSettings" data-i18n="globalSettingsHeader">Backup &amp; restore</h2>
+            <small class="global-scope-note" data-i18n="globalSettingsSub">Applies to every saved site, not just the one above</small>
+            <div class="button-group backup-group">
+                <button id="backupBtn" data-i18n="backupBtn">Backup all</button>
+                <button id="restoreBtn" data-i18n="restoreBtn">Restore backup</button>
+            </div>
+        </div>
+
+        <input type="file" id="restoreFileInput" accept=".json" style="display: none" />
+
+        <div id="saveStatus" class="save-status"></div>
+
+        <script src="i18n.js"></script>
+        <script src="options.js" type="module"></script>
+    </body>
+</html>

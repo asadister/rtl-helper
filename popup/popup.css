@@ -1,0 +1,515 @@
+@import url(/fonts/vazirmatn-font.css);
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --section-bg: #f9f9f9;
+    --border-color: #e0e0e0;
+    --button-bg: #4caf50;
+    --button-hover: #45a049;
+    --slider-bg: #ccc;
+    --slider-primary: #2196f3;
+    --slider-secondary: #33aa2f;
+    --error-text: #b00000;
+    --success-text: #4caf50;
+    --guide-color: #666;
+    --guide-bg: #f0f0f0;
+    --desktop-width: 280px;
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #2b2a33;
+        --text-color: #fbfbfe;
+        --section-bg: #42414d;
+        --border-color: #5b5b66;
+        --button-bg: #4caf50;
+        --button-hover: #45a049;
+        --slider-bg: #5b5b66;
+        --slider-primary: #2196f3;
+        --slider-secondary: #33aa2f;
+        --error-text: #b00000;
+        --success-text: #4caf50;
+        --guide-color: #aaa;
+        --guide-bg: #3a3944;
+        --danger-color: #e74c3c;
+        --danger-hover: #c0392b;
+    }
+}
+
+body {
+    width: var(--desktop-width);
+    min-width: var(--desktop-width);
+    max-width: var(--desktop-width);
+    padding: 15px;
+    font-family: Vazirmatn, "Segoe UI", Tahoma;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+#extName::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 8px;
+    vertical-align: middle;
+    background-color: var(--text-color);
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='2 2 18 20'%3E%3Cpath d='M10 10v5h2V4h2v11h2V4h2V2h-8C7.79 2 6 3.79 6 6s1.79 4 4 4zm-2 7v-3l-4 4 4 4v-3h12v-2H8z'/%3E%3C/svg%3E");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+}
+
+h2 {
+    font-size: 13px;
+    margin: 12px 0 8px;
+    color: var(--text-color);
+    text-align: start;
+}
+
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 22px;
+    margin: 0 8px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--slider-bg);
+    transition: 0.4s;
+    border-radius: 22px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow:
+        1px 1px 2px rgba(0, 0, 0, 0.54),
+        0px 0px 3px rgba(0, 0, 0, 0.26);
+}
+
+input:checked + .slider.slider-primary {
+    background-color: var(--slider-primary);
+}
+
+input:checked + .slider.slider-secondary {
+    background-color: var(--slider-secondary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(23px);
+}
+
+select {
+    cursor: pointer;
+}
+
+.shortcut-guide {
+    background-color: var(--guide-bg);
+    padding: 6px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: var(--guide-color);
+}
+
+kbd {
+    display: inline-block;
+    background-color: var(--bg-color);
+    border: 1px outset var(--border-color);
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+    color: var(--text-color);
+    font-size: 10px;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+    margin: 0 2px;
+}
+
+.settings-section {
+    background-color: var(--section-bg);
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 12px;
+    text-align: right;
+    border: 1px solid var(--border-color);
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.setting-item:last-child {
+    margin-bottom: 0;
+}
+
+#beforeCurrentSite {
+    font-size: 11px;
+    color: var(--guide-color);
+}
+
+#currentSite {
+    overflow: hidden;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.setting-item label,
+.setting-text,
+select {
+    font-size: 12px;
+    margin: 0 6px;
+}
+
+.setting-item select {
+    width: 100px;
+    padding: 3px;
+    font-size: 11px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.setting-item select option[value=""] {
+    color: var(--guide-color);
+    background-color: var(--section-bg);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+button {
+    font-family: Vazirmatn, "Segoe UI", Tahoma;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+button:disabled,
+select:disabled,
+input:disabled + .slider {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button:disabled {
+    filter: contrast(0);
+}
+
+/* ============ BUTTON ICONS ============ */
+button::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+/* ============================================================ */
+/* ============ OUTLINE STYLE ==================== */
+/* ============================================================ */
+
+#forgetSiteBtn {
+    background-color: transparent;
+    color: var(--danger-color);
+    border: 2px solid var(--danger-color);
+    box-shadow: none;
+}
+
+#forgetSiteBtn::before {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(84%) saturate(3645%) hue-rotate(345deg) brightness(94%) contrast(87%);
+}
+
+#forgetSiteBtn:hover:not(:disabled) {
+    background-color: var(--danger-color);
+    color: white;
+    box-shadow: 0 2px 12px rgba(231, 76, 60, 0.25);
+}
+
+#forgetSiteBtn:hover:not(:disabled)::before {
+    filter: brightness(0) saturate(100%) invert(100%);
+    transform: scale(1.15);
+}
+
+#optionsBtn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    box-shadow: none;
+}
+
+#optionsBtn::before {
+    filter: brightness(0) saturate(100%);
+}
+
+#optionsBtn:hover:not(:disabled) {
+    background-color: var(--border-color);
+    border-color: var(--button-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+#optionsBtn:hover:not(:disabled)::before {
+    transform: rotate(60deg);
+    transition: transform 0.4s ease;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    #forgetSiteBtn {
+        border-color: rgba(231, 76, 60, 0.7);
+    }
+
+    #forgetSiteBtn:hover:not(:disabled) {
+        box-shadow: 0 2px 16px rgba(231, 76, 60, 0.2);
+    }
+
+    #optionsBtn {
+        border-color: var(--border-color);
+    }
+
+    #optionsBtn::before {
+        filter: brightness(0) saturate(100%) invert(100%);
+    }
+
+    #optionsBtn:hover:not(:disabled) {
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.setting-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 12px 0 8px;
+    color: var(--text-color);
+    text-align: start;
+}
+
+.setting-header::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: currentColor;
+    transition: background-color 0.2s ease;
+}
+
+/* ============================================================ */
+/* ============ ICON DEFINITIONS ============================ */
+/* ============================================================ */
+
+/* Quick Settings - Icon */
+.quickSettings::before {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='2.5'/%3E%3Cpath d='M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z'/%3E%3C/svg%3E");
+}
+
+/* Data Settings - Icon */
+.dataSettings::before {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cellipse cx='12' cy='5' rx='9' ry='3'/%3E%3Cpath d='M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5'/%3E%3Cpath d='M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3'/%3E%3C/svg%3E");
+}
+
+/* Forget this site - Icon */
+#forgetSiteBtn::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h18'/%3E%3Cpath d='M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6'/%3E%3Cpath d='M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2'/%3E%3Cline x1='10' y1='11' x2='10' y2='17'/%3E%3Cline x1='14' y1='11' x2='14' y2='17'/%3E%3C/svg%3E");
+}
+
+#forgetSiteBtn:hover:not(:disabled)::before {
+    transform: scale(1.15);
+}
+
+/* More Settings - Icon */
+#optionsBtn::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 1v2'/%3E%3Cpath d='M12 21v2'/%3E%3Cpath d='M4.22 4.22l1.42 1.42'/%3E%3Cpath d='M18.36 18.36l1.42 1.42'/%3E%3Cpath d='M1 12h2'/%3E%3Cpath d='M21 12h2'/%3E%3Cpath d='M4.22 19.78l1.42-1.42'/%3E%3Cpath d='M18.36 5.64l1.42-1.42'/%3E%3C/svg%3E");
+}
+
+#optionsBtn:hover:not(:disabled)::before {
+    transform: rotate(60deg);
+    transition: transform 0.4s ease;
+}
+
+/* Dark mode - Icon adjustments */
+@media (prefers-color-scheme: dark) {
+    #forgetSiteBtn::before {
+        filter: brightness(0) saturate(100%) invert(35%) sepia(84%) saturate(3645%) hue-rotate(345deg) brightness(94%) contrast(87%);
+    }
+
+    #forgetSiteBtn:hover:not(:disabled)::before {
+        filter: brightness(0) saturate(100%) invert(100%);
+        transform: scale(1.15);
+    }
+}
+
+/* ============================================================ */
+/* ============ RTL SUPPORT ============ */
+/* ============================================================ */
+
+html[dir="rtl"] button::before {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* ============================================================ */
+/* ============ MOBILE ============ */
+/* ============================================================ */
+
+body.mobile {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px 12px;
+    font-size: 14px;
+}
+
+body.mobile .container {
+    padding: 0;
+}
+
+body.mobile h1 {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+
+body.mobile .switch-container {
+    margin-bottom: 14px;
+}
+
+body.mobile .switch {
+    transform: scale(1.3);
+    margin: 0 10px;
+}
+
+body.mobile .setting-item .switch {
+    transform: scale(1.2);
+}
+
+body.mobile .shortcut-guide {
+    display: none;
+}
+
+body.mobile .settings-section {
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+
+body.mobile h2 {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+body.mobile .setting-item {
+    margin-bottom: 12px;
+}
+
+body.mobile .setting-item:last-child {
+    margin-bottom: 0;
+}
+
+body.mobile .setting-text,
+body.mobile .setting-item label {
+    font-size: 13px;
+}
+
+body.mobile .setting-item select {
+    width: 110px;
+    padding: 6px 8px;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+body.mobile #currentSite {
+    font-size: 13px;
+    max-width: 180px;
+}
+
+body.mobile #beforeCurrentSite {
+    font-size: 12px;
+}
+
+body.mobile .button-group {
+    gap: 8px;
+}
+
+body.mobile button {
+    min-height: 48px;
+    font-size: 14px;
+    padding: 12px 16px;
+    border-radius: 6px;
+}
+
+body.mobile button::before {
+    width: 18px;
+    height: 18px;
+}
+
+body.mobile #forgetSiteBtn {
+    min-height: 44px;
+}
+
+body.mobile .site-info {
+    margin-bottom: 12px;
+}

@@ -1,0 +1,242 @@
+{
+  "extName": {
+    "message": "RTL Helper",
+    "description": "Extension name"
+  },
+  "shortcutPrefix": {
+    "message": "קיצור דרך: ",
+    "description": "Prefix label shown before the shortcut keys"
+  },
+  "shortcutNotSet": {
+    "message": "קיצור דרך לא הוגדר",
+    "description": "Shown when the command shortcut is not configured"
+  },
+  "shortcutNotSupported": {
+    "message": "קיצורי מקלדת אינם נתמכים בדפדפן זה",
+    "description": "Shown when the browser does not support extension keyboard shortcuts"
+  },
+  "quickSettings": {
+    "message": "הגדרות",
+    "description": "Section title for quick settings"
+  },
+  "applyToBodyLabel": {
+    "message": "החל על העמוד",
+    "description": "Label for applying RTL to the whole page"
+  },
+  "forceImportantLabel": {
+    "message": "כפה סגנונות",
+    "description": "Label for forcing styles with !important"
+  },
+  "overrideFontLabel": {
+    "message": "דחיפת גופן",
+    "description": "Label for overriding font on the page"
+  },
+  "fontFamilyLabel": {
+    "message": "גופן",
+    "description": "Label for font selection dropdown"
+  },
+  "noChangeFont": {
+    "message": "ברירת מחדל",
+    "description": "Option label meaning: do not change the font"
+  },
+  "segoeFont": {
+    "message": "Segoe UI",
+    "description": "Font option name"
+  },
+  "tahomaFont": {
+    "message": "Tahoma",
+    "description": "Font option name"
+  },
+  "vazirmatnFont": {
+    "message": "Vazirmatn",
+    "description": "Font option name"
+  },
+  "estedadFont": {
+    "message": "אסטדאד",
+    "description": "Font option name"
+  },
+  "markaziTextFont": {
+    "message": "מרכזי",
+    "description": "Font option name"
+  },
+  "parastooFont": {
+    "message": "פרסטו",
+    "description": "Font option name"
+  },
+  "notoSansArabicFont": {
+    "message": "Noto Sans Arabic",
+    "description": "Font option name"
+  },
+  "amiriFont": {
+    "message": "Amiri",
+    "description": "Font option name"
+  },
+  "cairoFont": {
+    "message": "Cairo",
+    "description": "Font option name"
+  },
+  "heeboFont": {
+    "message": "Heebo",
+    "description": "Font option name"
+  },
+  "rubikFont": {
+    "message": "Rubik",
+    "description": "Font option name"
+  },
+  "notoNastaliqUrduFont": {
+    "message": "Noto Nastaliq Urdu",
+    "description": "Font option name"
+  },
+  "dataSettings": {
+    "message": "נתונים",
+    "description": "Section title for site-specific stored data"
+  },
+  "currentSite": {
+    "message": "אתר:",
+    "description": "Label shown before the current site domain"
+  },
+  "forgetSite": {
+    "message": "שכח אתר זה",
+    "description": "Button label to remove saved settings for the current site"
+  },
+  "optionsBtn": {
+    "message": "אפשרויות מתקדמות",
+    "description": "Button label to open the additional settings page"
+  },
+  "pageNotSupported": {
+    "message": "הדף אינו נתמך ✕",
+    "description": "Shown when the current page/domain is not supported"
+  },
+  "optionsTitle": {
+    "message": "RTL Helper — אפשרויות מתקדמות",
+    "description": "Options page title"
+  },
+  "siteSettingsHeader": {
+    "message": "הגדרות אתר זה",
+    "description": "Header for the site-specific settings section on the options page"
+  },
+  "customCSSForDomain": {
+    "message": "CSS מותאם אישית:",
+    "description": "Label shown before the domain name on the options page"
+  },
+  "customCSSSub": {
+    "message": "CSS נוסף לסגנונות RTL כברירת מחדל",
+    "description": "Helper text under the custom CSS input"
+  },
+  "saveBtn": {
+    "message": "שמור CSS",
+    "description": "Button label to save settings"
+  },
+  "resetBtn": {
+    "message": "אפס CSS",
+    "description": "Button label to reset settings for the current site"
+  },
+  "returnBtn": {
+    "message": "חזור",
+    "description": "Button label to return to the source tab"
+  },
+  "saveForSite": {
+    "message": "שמור CSS",
+    "description": "Button label to save settings for the current site"
+  },
+  "resetConfirm": {
+    "message": "לאפס CSS מותאם אישית עבור אתר זה?",
+    "description": "Confirmation prompt before resetting custom CSS for the current site"
+  },
+  "settingsSaved": {
+    "message": "CSS נשמר ✓",
+    "description": "Shown after saving site settings"
+  },
+  "settingsForgotten": {
+    "message": "האתר נשכח ✓",
+    "description": "Shown after deleting/forgetting a site's settings"
+  },
+  "resetSuccess": {
+    "message": "CSS אופס עבור $1 ✓",
+    "description": "Success message after resetting settings. Placeholder: $1 = domain"
+  },
+  "saveSuccess": {
+    "message": "CSS נשמר עבור $1 ✓",
+    "description": "Success message after saving settings. Placeholder: $1 = domain"
+  },
+  "saveError": {
+    "message": "שגיאה בשמירת CSS עבור $1",
+    "description": "Error message when saving fails. Placeholder: $1 = domain"
+  },
+  "resetError": {
+    "message": "שגיאה באיפוס CSS עבור $1",
+    "description": "Error message when reset fails. Placeholder: $1 = domain"
+  },
+  "loadError": {
+    "message": "שגיאה בטעינת הגדרות",
+    "description": "Error message when loading settings fails"
+  },
+  "globalSettingsHeader": {
+    "message": "גיבוי ושחזור",
+    "description": "Header for the global backup and restore section on the options page"
+  },
+  "globalSettingsSub": {
+    "message": "חל על כל אתר שנשמר, לא רק על האתר שלמעלה",
+    "description": "Subtitle explaining the scope of the backup and restore section"
+  },
+  "backupBtn": {
+    "message": "גיבוי הכל",
+    "description": "Button label to create a backup file of extension settings"
+  },
+  "restoreBtn": {
+    "message": "שחזר גיבוי",
+    "description": "Button label to restore settings from a backup file"
+  },
+  "backupSuccess": {
+    "message": "הגיבוי נוצר ✓",
+    "description": "Shown after creating a backup file"
+  },
+  "backupError": {
+    "message": "יצירת הגיבוי נכשלה",
+    "description": "Shown when creating a backup fails"
+  },
+  "restoreSuccess": {
+    "message": "הגדרות של $1 אתרים שוחזרו ✓",
+    "description": "Success message after restoring settings from backup. Placeholder: $1 = number of restored sites"
+  },
+  "restoreCanceled": {
+    "message": "השחזור בוטל",
+    "description": "Shown when the user cancels restore"
+  },
+  "invalidBackupFile": {
+    "message": "קובץ גיבוי לא תקין",
+    "description": "Shown when the selected backup file is missing required fields"
+  },
+  "invalidFileType": {
+    "message": "אנא בחר קובץ JSON",
+    "description": "Shown when the selected file is not a JSON file"
+  },
+  "fileTooLarge": {
+    "message": "הקובץ גדול מדי (מקסימום 5 MB)",
+    "description": "Shown when the selected file exceeds the size limit"
+  },
+  "fileReadError": {
+    "message": "שגיאה בקריאת קובץ",
+    "description": "Shown when the backup file cannot be read or parsed"
+  },
+  "restoreConfirmation": {
+    "message": "לשחזר גיבוי?\n\nהחלף $1 אתרים\nגיבוי: $2 (גרסה $3)",
+    "description": "Restore confirmation prompt. Placeholders: $1 = number of sites, $2 = backup date, $3 = extension version"
+  },
+  "unknownMsg": {
+    "message": "לא ידוע",
+    "description": "Label used when a value is missing or unknown"
+  },
+  "extDescription": {
+    "message": "תיקון בעיות פריסה מימין לשמאל (RTL) באתרים",
+    "description": "Extension description shown in the store"
+  },
+  "toggleRTL": {
+    "message": "החלף RTL",
+    "description": "Keyboard shortcut description"
+  },
+  "storageError": {
+    "message": "שגיאת אחסון",
+    "description": "Generic storage error message"
+  }
+}

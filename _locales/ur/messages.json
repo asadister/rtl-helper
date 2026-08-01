@@ -1,0 +1,242 @@
+{
+  "extName": {
+    "message": "RTL Helper",
+    "description": "Extension name"
+  },
+  "shortcutPrefix": {
+    "message": "شارٹ کٹ: ",
+    "description": "Prefix label shown before the shortcut keys"
+  },
+  "shortcutNotSet": {
+    "message": "شارٹ کٹ سیٹ نہیں",
+    "description": "Shown when the command shortcut is not configured"
+  },
+  "shortcutNotSupported": {
+    "message": "اس براؤزر میں کی بورڈ شارٹ کٹس معاون نہیں ہیں",
+    "description": "Shown when the browser does not support extension keyboard shortcuts"
+  },
+  "quickSettings": {
+    "message": "ترتیبات",
+    "description": "Section title for quick settings"
+  },
+  "applyToBodyLabel": {
+    "message": "پورے صفحے پر لاگو کریں",
+    "description": "Label for applying RTL to the whole page"
+  },
+  "forceImportantLabel": {
+    "message": "اسٹائل کو مجبور کریں",
+    "description": "Label for forcing styles with !important"
+  },
+  "overrideFontLabel": {
+    "message": "فونٹ کو اوور رائڈ کریں",
+    "description": "Label for overriding font on the page"
+  },
+  "fontFamilyLabel": {
+    "message": "فونٹ",
+    "description": "Label for font selection dropdown"
+  },
+  "noChangeFont": {
+    "message": "پہلے سے طے شدہ",
+    "description": "Option label meaning: do not change the font"
+  },
+  "segoeFont": {
+    "message": "Segoe UI",
+    "description": "Font option name"
+  },
+  "tahomaFont": {
+    "message": "Tahoma",
+    "description": "Font option name"
+  },
+  "vazirmatnFont": {
+    "message": "Vazirmatn",
+    "description": "Font option name"
+  },
+  "estedadFont": {
+    "message": "استعداد",
+    "description": "Font option name"
+  },
+  "markaziTextFont": {
+    "message": "مرکزی",
+    "description": "Font option name"
+  },
+  "parastooFont": {
+    "message": "پرستو",
+    "description": "Font option name"
+  },
+  "notoSansArabicFont": {
+    "message": "Noto Sans Arabic",
+    "description": "Font option name"
+  },
+  "amiriFont": {
+    "message": "Amiri",
+    "description": "Font option name"
+  },
+  "cairoFont": {
+    "message": "Cairo",
+    "description": "Font option name"
+  },
+  "heeboFont": {
+    "message": "Heebo",
+    "description": "Font option name"
+  },
+  "rubikFont": {
+    "message": "Rubik",
+    "description": "Font option name"
+  },
+  "notoNastaliqUrduFont": {
+    "message": "Noto Nastaliq Urdu",
+    "description": "Font option name"
+  },
+  "dataSettings": {
+    "message": "ڈیٹا",
+    "description": "Section title for site-specific stored data"
+  },
+  "currentSite": {
+    "message": "سائٹ:",
+    "description": "Label shown before the current site domain"
+  },
+  "forgetSite": {
+    "message": "اس سائٹ کو بھولیں",
+    "description": "Button label to remove saved settings for the current site"
+  },
+  "optionsBtn": {
+    "message": "اضافی ترتیبات",
+    "description": "Button label to open the additional settings page"
+  },
+  "pageNotSupported": {
+    "message": "صفحہ معاون نہیں ✕",
+    "description": "Shown when the current page/domain is not supported"
+  },
+  "optionsTitle": {
+    "message": "RTL Helper — اضافی ترتیبات",
+    "description": "Options page title"
+  },
+  "siteSettingsHeader": {
+    "message": "اس سائٹ کی ترتیبات",
+    "description": "Header for the site-specific settings section on the options page"
+  },
+  "customCSSForDomain": {
+    "message": "کسٹم CSS:",
+    "description": "Label shown before the domain name on the options page"
+  },
+  "customCSSSub": {
+    "message": "CSS کو پہلے سے طے شدہ RTL اسٹائلز میں شامل کیا گیا",
+    "description": "Helper text under the custom CSS input"
+  },
+  "saveBtn": {
+    "message": "CSS محفوظ کریں",
+    "description": "Button label to save settings"
+  },
+  "resetBtn": {
+    "message": "CSS ری سیٹ کریں",
+    "description": "Button label to reset settings for the current site"
+  },
+  "returnBtn": {
+    "message": "واپس جائیں",
+    "description": "Button label to return to the source tab"
+  },
+  "saveForSite": {
+    "message": "CSS محفوظ کریں",
+    "description": "Button label to save settings for the current site"
+  },
+  "resetConfirm": {
+    "message": "کیا آپ اس سائٹ کے لیے کسٹم CSS ری سیٹ کرنا چاہتے ہیں؟",
+    "description": "Confirmation prompt before resetting custom CSS for the current site"
+  },
+  "settingsSaved": {
+    "message": "CSS محفوظ ہوگیا ✓",
+    "description": "Shown after saving site settings"
+  },
+  "settingsForgotten": {
+    "message": "سائٹ بھول گئے ✓",
+    "description": "Shown after deleting/forgetting a site's settings"
+  },
+  "resetSuccess": {
+    "message": "$1 کے لیے CSS ری سیٹ ہوگیا ✓",
+    "description": "Success message after resetting settings. Placeholder: $1 = domain"
+  },
+  "saveSuccess": {
+    "message": "$1 کے لیے CSS محفوظ ہوگیا ✓",
+    "description": "Success message after saving settings. Placeholder: $1 = domain"
+  },
+  "saveError": {
+    "message": "$1 کے لیے CSS محفوظ کرنے میں خرابی",
+    "description": "Error message when saving fails. Placeholder: $1 = domain"
+  },
+  "resetError": {
+    "message": "$1 کے لیے CSS ری سیٹ کرنے میں خرابی",
+    "description": "Error message when reset fails. Placeholder: $1 = domain"
+  },
+  "loadError": {
+    "message": "ترتیبات لوڈ کرنے میں خرابی",
+    "description": "Error message when loading settings fails"
+  },
+  "globalSettingsHeader": {
+    "message": "بیک اپ اور بحالی",
+    "description": "Header for the global backup and restore section on the options page"
+  },
+  "globalSettingsSub": {
+    "message": "ہر محفوظ شدہ سائٹ پر لاگو ہوتا ہے، نہ صرف اوپر والی سائٹ پر",
+    "description": "Subtitle explaining the scope of the backup and restore section"
+  },
+  "backupBtn": {
+    "message": "سب کا بیک اپ",
+    "description": "Button label to create a backup file of extension settings"
+  },
+  "restoreBtn": {
+    "message": "بیک اپ بحال کریں",
+    "description": "Button label to restore settings from a backup file"
+  },
+  "backupSuccess": {
+    "message": "بیک اپ بن گیا ✓",
+    "description": "Shown after creating a backup file"
+  },
+  "backupError": {
+    "message": "بیک اپ ناکام",
+    "description": "Shown when creating a backup fails"
+  },
+  "restoreSuccess": {
+    "message": "$1 سائٹس کی ترتیبات بحال ہوگئیں ✓",
+    "description": "Success message after restoring settings from backup. Placeholder: $1 = number of restored sites"
+  },
+  "restoreCanceled": {
+    "message": "بحالی منسوخ",
+    "description": "Shown when the user cancels restore"
+  },
+  "invalidBackupFile": {
+    "message": "غلط بیک اپ فائل",
+    "description": "Shown when the selected backup file is missing required fields"
+  },
+  "invalidFileType": {
+    "message": "براہ کرم JSON فائل منتخب کریں",
+    "description": "Shown when the selected file is not a JSON file"
+  },
+  "fileTooLarge": {
+    "message": "فائل بہت بڑی ہے (زیادہ سے زیادہ 5 MB)",
+    "description": "Shown when the selected file exceeds the size limit"
+  },
+  "fileReadError": {
+    "message": "فائل پڑھنے میں خرابی",
+    "description": "Shown when the backup file cannot be read or parsed"
+  },
+  "restoreConfirmation": {
+    "message": "بیک اپ بحال کریں؟\n\n$1 سائٹس کو اوور رائٹ کریں\nبیک اپ: $2 (ورژن $3)",
+    "description": "Restore confirmation prompt. Placeholders: $1 = number of sites, $2 = backup date, $3 = extension version"
+  },
+  "unknownMsg": {
+    "message": "نامعلوم",
+    "description": "Label used when a value is missing or unknown"
+  },
+  "extDescription": {
+    "message": "ویب سائٹس پر دائیں سے بائیں (RTL) لے آؤٹ کے مسائل کو حل کریں",
+    "description": "Extension description shown in the store"
+  },
+  "toggleRTL": {
+    "message": "RTL کو تبدیل کریں",
+    "description": "Keyboard shortcut description"
+  },
+  "storageError": {
+    "message": "اسٹوریج کی خرابی",
+    "description": "Generic storage error message"
+  }
+}

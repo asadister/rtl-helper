@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="popup.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="switch-container">
+                <h1 id="extName" data-i18n="extName">RTL Helper</h1>
+                <label class="switch">
+                    <input type="checkbox" id="rtlToggle" />
+                    <span class="slider slider-primary"></span>
+                </label>
+            </div>
+
+            <div class="shortcut-guide">
+                <span data-i18n="shortcutPrefix">Shortcut: </span>
+                <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>1</kbd>
+            </div>
+
+            <div class="settings-section">
+                <h2 class="setting-header quickSettings" data-i18n="quickSettings">Settings</h2>
+                <div class="setting-item">
+                    <span class="setting-text" data-i18n="applyToBodyLabel">Apply to page</span>
+                    <label class="switch">
+                        <input type="checkbox" id="applyToBody" />
+                        <span class="slider slider-secondary"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <span class="setting-text" data-i18n="forceImportantLabel">Force styles</span>
+                    <label class="switch">
+                        <input type="checkbox" id="forceImportant" />
+                        <span class="slider slider-secondary"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <span class="setting-text" data-i18n="overrideFontLabel">Override font</span>
+                    <label class="switch">
+                        <input type="checkbox" id="overrideFont" />
+                        <span class="slider slider-secondary"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <label for="fontFamily" data-i18n="fontFamilyLabel">Font</label>
+                    <select id="fontFamily">
+                        <option value="" data-i18n="noChangeFont">Default</option>
+                        <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" data-i18n="segoeFont">Segoe UI</option>
+                        <option value="Tahoma, Geneva, sans-serif" data-i18n="tahomaFont">Tahoma</option>
+                        <option value="'Vazirmatn', sans-serif" data-i18n="vazirmatnFont">Vazirmatn</option>
+                        <option value="'Estedad', sans-serif" data-i18n="estedadFont">Estedad</option>
+                        <option value="'Markazi Text', serif" data-i18n="markaziTextFont">Markazi Text</option>
+                        <option value="'Parastoo', sans-serif" data-i18n="parastooFont">Parastoo</option>
+                        <option value="'Noto Sans Arabic', sans-serif" data-i18n="notoSansArabicFont">Noto Sans Arabic</option>
+                        <option value="'Amiri', serif" data-i18n="amiriFont">Amiri</option>
+                        <option value="'Cairo', sans-serif" data-i18n="cairoFont">Cairo</option>
+                        <option value="'Heebo', sans-serif" data-i18n="heeboFont">Heebo</option>
+                        <option value="'Rubik', sans-serif" data-i18n="rubikFont">Rubik</option>
+                        <option value="'Noto Nastaliq Urdu', serif" data-i18n="notoNastaliqUrduFont">Noto Nastaliq Urdu</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2 class="setting-header dataSettings" data-i18n="dataSettings">Data</h2>
+                <div class="setting-item">
+                    <span id="beforeCurrentSite" data-i18n="currentSite">Site:</span>
+                    <span id="currentSite">-</span>
+                </div>
+                <div class="button-group">
+                    <button id="forgetSiteBtn" data-i18n="forgetSite">Forget this Site</button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="optionsBtn" data-i18n="optionsBtn">Options</button>
+            </div>
+        </div>
+        <script src="../i18n.js"></script>
+        <script src="popup.js" type="module"></script>
+    </body>
+</html>

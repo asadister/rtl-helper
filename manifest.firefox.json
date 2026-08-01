@@ -1,0 +1,65 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_extName__",
+    "version": "4.11.2",
+    "description": "__MSG_extDescription__",
+    "default_locale": "en",
+    "icons": {
+        "16": "icons/icon-16.png",
+        "32": "icons/icon-32.png",
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png",
+        "128": "icons/icon-128.png"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icons/icon-16.png",
+            "32": "icons/icon-32.png",
+            "48": "icons/icon-48.png"
+        },
+        "default_title": "__MSG_extName__",
+        "default_popup": "popup/popup.html"
+    },
+    "options_ui": {
+        "open_in_tab": true,
+        "page": "options.html"
+    },
+    "permissions": ["activeTab", "storage", "tabs"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+        "scripts": ["background.js"],
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "commands": {
+        "toggle-rtl": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+1",
+                "mac": "Command+Shift+1"
+            },
+            "description": "__MSG_toggleRTL__"
+        }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["fonts/*.woff2", "fonts/*.css"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{e96425f4-37c7-4bbe-b50f-bf39a2ef574b}",
+            "strict_min_version": "142.0",
+            "data_collection_permissions": {
+                "required": ["none"],
+                "optional": []
+            }
+        }
+    }
+}
