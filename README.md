@@ -5,6 +5,7 @@
 ![Chrome](https://img.shields.io/badge/Chrome-88%2B-4285F4)
 ![Firefox](https://img.shields.io/badge/Firefox-142%2B-FF7139)
 ![Edge](https://img.shields.io/badge/Edge-88%2B-0078D7)
+[![GitHub](https://img.shields.io/badge/GitHub-asadister/rtl--helper-212830?logo=github)](https://github.com/asadister/rtl-helper)
 
 A user-friendly browser extension for **Chrome/Chromium** and **Firefox** that provides better support for Right-to-Left (RTL) languages like Persian, Arabic, Urdu, and Hebrew.
 
@@ -111,21 +112,21 @@ Chrome and Firefox handle MV3 background execution differently, so we ship **two
 │   ├── popup.html         # Quick settings UI
 │   ├── popup.js           # Quick settings logic
 │   └── popup.css          # Quick settings styles
-├── options.html            # Advanced settings page (site-scope + global-scope sections)
-├── options.js              # Advanced settings logic
-├── options.css             # Advanced settings styles
-├── i18n.js                 # Translation manager
-├── common.js                # Shared utility functions
-├── fonts/                  # Local font files
-├── icons/                  # Extension icons (default + active state)
-├── store-listing.en.txt    # Plain-text copy for store listings (English)
-├── store-listing.fa.txt    # Plain-text copy for store listings (Persian)
-└── _locales/                # Translations
-    ├── fa/                  # Persian
-    ├── ar/                  # Arabic
-    ├── he/                  # Hebrew
-    ├── ur/                  # Urdu
-    └── en/                  # English
+├── options.html           # Advanced settings page (site-scope + global-scope sections)
+├── options.js             # Advanced settings logic
+├── options.css            # Advanced settings styles
+├── i18n.js                # Translation manager
+├── common.js              # Shared utility functions
+├── fonts/                 # Local font files
+├── icons/                 # Extension icons (default + active state)
+├── store-listing.en.txt   # Plain-text copy for store listings (English)
+├── store-listing.fa.txt   # Plain-text copy for store listings (Persian)
+└── _locales/              # Translations
+    ├── fa/                # Persian
+    ├── ar/                # Arabic
+    ├── he/                # Hebrew
+    ├── ur/                # Urdu
+    └── en/                # English
 ```
 
 ## 🌍 Browser Support
@@ -161,16 +162,17 @@ This project is free for personal and commercial use.
 
 ## 👨‍💻 Contributing
 
-Issues and pull requests are welcome! If you're touching `background.js`, `content.js`, or `common.js`, please test in both a Chromium browser and Firefox — see [Cross-Browser Manifest](#-cross-browser-manifest) for why the two can behave differently.
+All contributions are welcome, big or small — code, bug reports, or translations. Together we can make browsing better for RTL language users.
+
+- 🐛 Found a bug or have an idea? [Open an issue](https://github.com/asadister/rtl-helper/issues)
+- 🌐 Want to improve a translation? Use `_locales/en/messages.json` as reference and open a pull request
+- 💻 Want to contribute code? [Fork the repository](https://github.com/asadister/rtl-helper/fork) and open a pull request
 
 ## 🌟 Support the Project
 
 If you find this extension useful, consider:
 - ⭐ Starring the repository
-- 🐛 Reporting issues
-- 🌐 Contributing translations
-
----
+- 📣 Sharing it with others who read RTL languages
 
 **Version:** 4.11.2
 **Last Updated:** August 1, 2026
