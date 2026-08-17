@@ -86,6 +86,11 @@ function updateUIFromSettings(settings) {
     if (customCSS.value !== newValue) {
         customCSS.value = newValue;
     }
+
+    const applyDefaultStyles = document.getElementById("applyDefaultStyles");
+    // Defaults to checked: existing saved settings predate this field and
+    // must keep behaving exactly as before (default RTL styles applied).
+    applyDefaultStyles.checked = settings?.applyDefaultStyles !== false;
 }
 
 async function saveSettings() {
@@ -95,12 +100,14 @@ async function saveSettings() {
     }
 
     const customCSS = document.getElementById("customCSS").value.trim();
+    const applyDefaultStyles = document.getElementById("applyDefaultStyles").checked;
 
     try {
         // Missing fields (enabled/fontFamily/etc.) are fine to omit for a new
         // domain entry - every reader (popup.js, background.js, content.js)
-        // already falls back to false/"" for fields it doesn't find.
-        const updated = await updateDomainPreference(currentDomain, { customCSS });
+        // already falls back to false/"" for fields it doesn't find, except
+        // applyDefaultStyles which defaults to true (see content.js).
+        const updated = await updateDomainPreference(currentDomain, { customCSS, applyDefaultStyles });
         if (!updated) throw new Error("Failed to update preferences");
 
         showStatus(chrome.i18n.getMessage("saveSuccess", currentDomain), "success");
@@ -371,7 +378,7 @@ function setupTextareaTabSupport() {
 }
 
 function enableDomainControls() {
-    const controls = ["customCSS", "saveBtn", "resetBtn"];
+    const controls = ["customCSS", "applyDefaultStyles", "saveBtn", "resetBtn"];
     controls.forEach((id) => {
         const el = document.getElementById(id);
         if (el) el.disabled = false;
@@ -379,7 +386,7 @@ function enableDomainControls() {
 }
 
 function disableDomainControls() {
-    const controls = ["customCSS", "saveBtn", "resetBtn"];
+    const controls = ["customCSS", "applyDefaultStyles", "saveBtn", "resetBtn"];
     controls.forEach((id) => {
         const el = document.getElementById(id);
         if (el) el.disabled = true;

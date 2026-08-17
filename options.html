@@ -19,7 +19,14 @@
                 <span id="domainName">-</span>
             </label>
             <textarea id="customCSS" spellcheck="false" placeholder="div.container { text-align: right; }&#10;.message { direction: rtl; }"></textarea>
-            <small data-i18n="customCSSSub">CSS added to default RTL styles</small>
+            <div class="checkbox-item">
+                <label for="applyDefaultStyles">
+                    <input type="checkbox" id="applyDefaultStyles" checked />
+                    <span data-i18n="applyDefaultStylesLabel">Apply default RTL styles with this CSS</span>
+                </label>
+                <small data-i18n="applyDefaultStylesSub">When disabled, only your Custom CSS above is applied</small>
+            </div>
+
             <div class="button-group">
                 <button id="saveBtn" data-i18n="saveBtn">Save CSS</button>
                 <button id="resetBtn" data-i18n="resetBtn">Reset CSS</button>

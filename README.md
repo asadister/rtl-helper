@@ -1,6 +1,6 @@
 # RTL Helper - Browser Extension for RTL Languages
 
-![Version](https://img.shields.io/badge/version-4.11.2-4caf50)
+![Version](https://img.shields.io/badge/version-4.12.0-4caf50)
 ![License](https://img.shields.io/badge/license-free%20for%20personal%20%26%20commercial%20use-blue)
 ![Chrome](https://img.shields.io/badge/Chrome-88%2B-4285F4)
 ![Firefox](https://img.shields.io/badge/Firefox-142%2B-FF7139)
@@ -62,7 +62,7 @@ A user-friendly browser extension for **Chrome/Chromium** and **Firefox** that p
 
 ### Advanced Settings Page
 The options page is split into two clearly separated sections:
-- **Settings for this site** (green accent) - Custom CSS for the domain you arrived from
+- **Settings for this site** (green accent) - Custom CSS for the domain you arrived from, with an option to disable the extension's default RTL styles if you only need your own CSS or a different font
 - **Backup & restore** (amber accent) - global, applies to every saved site, not just the current one
 
 ### Keyboard Shortcut
@@ -174,5 +174,5 @@ If you find this extension useful, consider:
 - ⭐ Starring the repository
 - 📣 Sharing it with others who read RTL languages
 
-**Version:** 4.11.2
-**Last Updated:** August 1, 2026
+**Version:** 4.12.0
+**Last Updated:** August 17, 2026

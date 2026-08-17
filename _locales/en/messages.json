@@ -119,9 +119,13 @@
     "message": "Custom CSS:",
     "description": "Label shown before the domain name on the options page"
   },
-  "customCSSSub": {
-    "message": "CSS added to default RTL styles",
-    "description": "Helper text under the custom CSS input"
+  "applyDefaultStylesLabel": {
+    "message": "Apply default RTL styles with this CSS",
+    "description": "Label for the checkbox to apply default RTL styles alongside custom CSS"
+  },
+  "applyDefaultStylesSub": {
+    "message": "When disabled, only your Custom CSS above is applied",
+    "description": "Helper text under the applyDefaultStyles checkbox"
   },
   "saveBtn": {
     "message": "Save CSS",

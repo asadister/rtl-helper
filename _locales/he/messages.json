@@ -52,15 +52,15 @@
     "description": "Font option name"
   },
   "estedadFont": {
-    "message": "אסטדאד",
+    "message": "Estedad",
     "description": "Font option name"
   },
   "markaziTextFont": {
-    "message": "מרכזי",
+    "message": "Markazi Text",
     "description": "Font option name"
   },
   "parastooFont": {
-    "message": "פרסטו",
+    "message": "Parastoo",
     "description": "Font option name"
   },
   "notoSansArabicFont": {
@@ -119,9 +119,13 @@
     "message": "CSS מותאם אישית:",
     "description": "Label shown before the domain name on the options page"
   },
-  "customCSSSub": {
-    "message": "CSS נוסף לסגנונות RTL כברירת מחדל",
-    "description": "Helper text under the custom CSS input"
+  "applyDefaultStylesLabel": {
+    "message": "החל סגנונות RTL מוגדרים כברירת מחדל יחד עם CSS זה",
+    "description": "Label for the checkbox to apply default RTL styles alongside custom CSS"
+  },
+  "applyDefaultStylesSub": {
+    "message": "כאשר מושבת, רק ה-CSS המותאם אישית שלמעלה מוחל",
+    "description": "Helper text under the applyDefaultStyles checkbox"
   },
   "saveBtn": {
     "message": "שמור CSS",

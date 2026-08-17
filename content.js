@@ -13,6 +13,7 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
         applyToBody: null,
         forceImportant: null,
         overrideFont: null,
+        applyDefaultStyles: null,
     };
 
     /**
@@ -39,7 +40,8 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
             appliedSettings.customCSS !== newSettings.customCSS ||
             appliedSettings.applyToBody !== newSettings.applyToBody ||
             appliedSettings.overrideFont !== newSettings.overrideFont ||
-            appliedSettings.forceImportant !== newSettings.forceImportant
+            appliedSettings.forceImportant !== newSettings.forceImportant ||
+            appliedSettings.applyDefaultStyles !== newSettings.applyDefaultStyles
         );
     }
 
@@ -53,6 +55,9 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
         appliedSettings.applyToBody = settings.applyToBody || false;
         appliedSettings.forceImportant = settings.forceImportant || false;
         appliedSettings.overrideFont = settings.overrideFont || false;
+        // Defaults to true: existing saved settings predate this field and
+        // must keep behaving exactly as before (default RTL styles applied).
+        appliedSettings.applyDefaultStyles = settings.applyDefaultStyles !== false;
     }
 
     /**
@@ -65,6 +70,7 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
         appliedSettings.applyToBody = null;
         appliedSettings.forceImportant = null;
         appliedSettings.overrideFont = null;
+        appliedSettings.applyDefaultStyles = null;
     }
 
     /** Applies RTL styles to the page
@@ -73,13 +79,14 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
      * @param {boolean} applyToBody - Whether to apply styles to body element
      * @param {boolean} forceImportant - Whether to add !important to all rules
      * @param {boolean} overrideFont - Whether to override the font
+     * @param {boolean} applyDefaultStyles - Whether to apply the extension's default RTL styling
      */
-    function applyRTLStyles(fontFamily, customCSS, applyToBody = false, forceImportant = false, overrideFont = false) {
+    function applyRTLStyles(fontFamily, customCSS, applyToBody = false, forceImportant = false, overrideFont = false, applyDefaultStyles = true) {
         try {
             // ===== CLEANUP BEFORE APPLY =====
             removeAllRTLStyleElements();
 
-            const cssCode = generateCSSCode(fontFamily, customCSS, applyToBody, forceImportant, overrideFont);
+            const cssCode = generateCSSCode(fontFamily, customCSS, applyToBody, forceImportant, overrideFont, applyDefaultStyles);
 
             // Check if element still exists in DOM
             const isValidElement = styleElement && styleElement.parentNode && document.contains(styleElement);
@@ -172,9 +179,10 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
      * @param {boolean} applyToBody - Whether to apply styles to body element
      * @param {boolean} forceImportant - Whether to add !important to all rules
      * @param {boolean} overrideFont - Whether to override the font
+     * @param {boolean} applyDefaultStyles - Whether to apply the extension's default RTL styling
      * @returns {string} - The generated CSS code
      */
-    function generateCSSCode(fontFamily, customCSS, applyToBody = false, forceImportant = false, overrideFont = false) {
+    function generateCSSCode(fontFamily, customCSS, applyToBody = false, forceImportant = false, overrideFont = false, applyDefaultStyles = true) {
         const imp = forceImportant ? " !important" : "";
         const parts = [];
 
@@ -193,12 +201,18 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
         parts.push(buildBlock(":root", rootRules));
 
         // body
-        if (applyToBody || (fontFamily && !overrideFont)) {
-            const bodyRules = [
-                applyToBody && `direction: inherit${imp};`,
-                applyToBody && `text-align: inherit${imp};`,
-                fontFamily && !overrideFont && `font-family: var(--font-family)${imp};`,
-            ];
+        const bodyRules = [];
+
+        if (applyToBody) {
+            bodyRules.push(`direction: inherit${imp};`);
+            bodyRules.push(`text-align: inherit${imp};`);
+        }
+
+        if (fontFamily && !overrideFont) {
+            bodyRules.push(`font-family: var(--font-family)${imp};`);
+        }
+
+        if (bodyRules.length > 0) {
             parts.push(buildBlock("body", bodyRules));
         }
 
@@ -208,7 +222,7 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
                 '*',
                 ':not(pre):not(pre *):not(code):not(code *):not(svg):not(svg *)',
                 ':not([class*="fa-"]):not([class*="bi-"]):not([class*="ion-"]):not([class*="material"])',
-                ':not([class*="icon" i]):not([data-cds*="icon" i])',
+                ':not([class*="ico" i]):not([data-cds*="icon" i])',
             ].join('');
             parts.push(buildBlock(overrideSelector, [`font-family: ${fontFamily}${imp};`]));
         }
@@ -219,15 +233,25 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
             'table:not([dir="ltr"]), table:not([dir="ltr"]) :where(th, td)',
             'input:not([type="url"]):not([type="email"]):not([type="tel"]):not([type="number"]):not([type="password"]), textarea, select',
         ];
-        const rtlRules = [
-            `direction: var(--text-direction)${imp};`,
-            `text-align: var(--text-align)${imp};`,
-            fontFamily && !overrideFont && `font-family: var(--font-family)${imp};`,
-        ];
-        rtlSelectors.forEach((sel) => parts.push(buildBlock(sel, rtlRules)));
 
-        // LTR elements
-        parts.push(buildBlock("pre, code", [`direction: ltr${imp};`, `text-align: start${imp};`]));
+        const rtlRules = [];
+
+        if (applyDefaultStyles) {
+            rtlRules.push(`direction: var(--text-direction)${imp};`);
+            rtlRules.push(`text-align: var(--text-align)${imp};`);
+        }
+
+        if (fontFamily && !overrideFont) {
+            rtlRules.push(`font-family: var(--font-family)${imp};`);
+        }
+
+        if (rtlRules.length > 0) {
+            rtlSelectors.forEach((sel) => parts.push(buildBlock(sel, rtlRules)));
+        }
+
+        if (applyDefaultStyles) {
+            parts.push(buildBlock("pre, code", [`direction: ltr${imp};`, `text-align: start${imp};`]));
+        }
 
         if (customCSS) parts.push(customCSS);
 
@@ -262,7 +286,8 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
                                     request.customCSS,
                                     request.applyToBody,
                                     request.forceImportant,
-                                    request.overrideFont
+                                    request.overrideFont,
+                                    request.applyDefaultStyles !== false
                                 );
                                 console.debug(
                                     styleMissing && !firstRun && !isTurnOnRequest

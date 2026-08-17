@@ -197,7 +197,6 @@ function disableAllControls() {
     forceImportant.checked = false;
     overrideFont.checked = false;
     fontFamily.value = "";
-
     forgetSiteBtn.disabled = true;
 }
 
@@ -206,7 +205,6 @@ function showPageNotSupported() {
     currentSiteEl.style.color = "var(--error-text)";
 
     disableAllControls();
-    forgetSiteBtn.disabled = true;
 }
 
 // ==================== EVENT HANDLERS ====================

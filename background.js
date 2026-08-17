@@ -45,7 +45,7 @@ function computeChangedDomains(oldSettings, newSettings) {
  * @returns {boolean} - True if settings are equal
  */
 function isSettingsEqual(a, b) {
-    const keys = ["enabled", "fontFamily", "applyToBody", "forceImportant", "overrideFont", "customCSS"];
+    const keys = ["enabled", "fontFamily", "applyToBody", "forceImportant", "overrideFont", "customCSS", "applyDefaultStyles"];
     for (const key of keys) {
         if (a?.[key] !== b?.[key]) return false;
     }
@@ -125,6 +125,7 @@ async function applyDomainUpdateToAllTabs(domain, domainSettings, updateId) {
             applyToBody: domainSettings?.applyToBody || false,
             forceImportant: domainSettings?.forceImportant || false,
             overrideFont: domainSettings?.overrideFont || false,
+            applyDefaultStyles: domainSettings?.applyDefaultStyles !== false,
             source: "domain_update",
             updateId,
         });
@@ -308,6 +309,7 @@ chrome.tabs.onActivated.addListener(async function (activeInfo) {
                     applyToBody: false,
                     forceImportant: false,
                     overrideFont: false,
+                    applyDefaultStyles: true,
                     source: "tab_activation_no_settings",
                     updateId: `tab-activation-off-${Date.now()}-${tab.id}`,
                 });
@@ -346,6 +348,7 @@ chrome.tabs.onActivated.addListener(async function (activeInfo) {
             applyToBody: domainSettings.applyToBody || false,
             forceImportant: domainSettings.forceImportant || false,
             overrideFont: domainSettings.overrideFont || false,
+            applyDefaultStyles: domainSettings.applyDefaultStyles !== false,
             source: "tab_activation",
             updateId: `tab-activation-${Date.now()}-${tab.id}`,
         });
@@ -389,6 +392,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
                         applyToBody: false,
                         forceImportant: false,
                         overrideFont: false,
+                        applyDefaultStyles: true,
                         source: "tab_update",
                         updateId: `tab-update-${Date.now()}-${tabId}`,
                     });
@@ -429,6 +433,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
                 applyToBody: domainSettings.applyToBody || false,
                 forceImportant: domainSettings.forceImportant || false,
                 overrideFont: domainSettings.overrideFont || false,
+                applyDefaultStyles: domainSettings.applyDefaultStyles !== false,
                 source: "tab_update",
                 updateId: `tab-update-${Date.now()}-${tabId}`,
             });
@@ -473,6 +478,7 @@ async function handleKeyboardShortcut() {
             forceImportant: false,
             overrideFont: false,
             customCSS: "",
+            applyDefaultStyles: true,
         };
 
         await saveSitePreferences(domain, { enabled: !currentSettings.enabled });

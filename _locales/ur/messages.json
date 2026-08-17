@@ -52,15 +52,15 @@
     "description": "Font option name"
   },
   "estedadFont": {
-    "message": "استعداد",
+    "message": "Estedad",
     "description": "Font option name"
   },
   "markaziTextFont": {
-    "message": "مرکزی",
+    "message": "Markazi Text",
     "description": "Font option name"
   },
   "parastooFont": {
-    "message": "پرستو",
+    "message": "Parastoo",
     "description": "Font option name"
   },
   "notoSansArabicFont": {
@@ -119,9 +119,13 @@
     "message": "کسٹم CSS:",
     "description": "Label shown before the domain name on the options page"
   },
-  "customCSSSub": {
-    "message": "CSS کو پہلے سے طے شدہ RTL اسٹائلز میں شامل کیا گیا",
-    "description": "Helper text under the custom CSS input"
+  "applyDefaultStylesLabel": {
+    "message": "اس CSS کے ساتھ ڈیفالٹ RTL اسٹائلز کا اطلاق کریں",
+    "description": "Label for the checkbox to apply default RTL styles alongside custom CSS"
+  },
+  "applyDefaultStylesSub": {
+    "message": "جب غیر فعال ہو، صرف اوپر والا کسٹم CSS لاگو ہوتا ہے",
+    "description": "Helper text under the applyDefaultStyles checkbox"
   },
   "saveBtn": {
     "message": "CSS محفوظ کریں",
