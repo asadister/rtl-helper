@@ -1,6 +1,27 @@
 // ===== DOUBLE INJECTION PREVENTION =====
-if (typeof window.__rtlHelperLoaded === "undefined") {
-    window.__rtlHelperLoaded = true;
+// The previous instance exposes a liveness probe on the shared window
+// object. After an extension update/reload the old instance becomes
+// orphaned (its chrome.runtime context is invalidated), the probe then
+// reports dead, and this fresh injection takes over the page.
+var previousInstanceAlive = false;
+if (window.__rtlHelperLoaded && typeof window.__rtlHelperLoaded.isAlive === "function") {
+    try {
+        previousInstanceAlive = window.__rtlHelperLoaded.isAlive();
+    } catch (_) {
+        previousInstanceAlive = false;
+    }
+}
+
+if (!previousInstanceAlive) {
+    window.__rtlHelperLoaded = {
+        isAlive: () => {
+            try {
+                return !!chrome.runtime?.id;
+            } catch (_) {
+                return false;
+            }
+        },
+    };
 
     let currentStyleId = null;
     let styleElement = null;
@@ -83,24 +104,25 @@ if (typeof window.__rtlHelperLoaded === "undefined") {
      */
     function applyRTLStyles(fontFamily, customCSS, applyToBody = false, forceImportant = false, overrideFont = false, applyDefaultStyles = true) {
         try {
-            // ===== CLEANUP BEFORE APPLY =====
-            removeAllRTLStyleElements();
-
             const cssCode = generateCSSCode(fontFamily, customCSS, applyToBody, forceImportant, overrideFont, applyDefaultStyles);
 
-            // Check if element still exists in DOM
+            // Check if our style element is still in the DOM
             const isValidElement = styleElement && styleElement.parentNode && document.contains(styleElement);
 
             if (isValidElement) {
-                // Update existing style element
+                // Update in place: no remove/recreate gap, so the page never
+                // flickers between styled/unstyled states.
+                document.querySelectorAll('style[id^="rtl-helper-"]').forEach((style) => {
+                    if (style !== styleElement && style.parentNode) {
+                        style.remove();
+                    }
+                });
                 styleElement.textContent = cssCode;
                 console.debug("RTL styles updated");
             } else {
-                // Clean up stale reference
-                styleElement = null;
-                currentStyleId = null;
-
-                // Create new style element
+                // Clean up stale elements (e.g. removed by the site itself),
+                // then create a fresh one.
+                removeAllRTLStyleElements();
                 styleElement = document.createElement("style");
                 currentStyleId = "rtl-helper-" + Date.now() + "-" + Math.random().toString(36).slice(2, 9);
                 styleElement.id = currentStyleId;
